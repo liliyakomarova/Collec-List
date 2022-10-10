@@ -19,8 +19,8 @@ public class Main {
             if ("end".equals(input)) {
                 break;
             }
-            int ActionNumber = Integer.parseInt(input) - 1;
-            if (ActionNumber == 0) {
+            int actionNumber = Integer.parseInt(input) - 1;
+            if (actionNumber == 0) {
                 System.out.println("Какой продукт Вы хотите добавить? Список: ");
                 for (String p : products) {
                     System.out.println(p);
@@ -29,11 +29,11 @@ public class Main {
                 list.add(inputProduct);
                 System.out.println("Общий список продуктов: " + list.size());
             }
-            if (ActionNumber == 1) {
+            if (actionNumber == 1) {
                 System.out.println("Список продуктов: ");
                 print(list);
             }
-            if (ActionNumber == 2) {
+            if (actionNumber == 2) {
                 System.out.println("Список продуктов: ");
                 print(list);
                 System.out.println("Какое количество продукта вы хотите удалить? Введите номер или название продукта");
@@ -44,7 +44,7 @@ public class Main {
                 try {
                     int productRemove = Integer.parseInt(inputRemove) - 1;
                     for (int i = 0; i < list.size(); i++) {
-                        if (list.get(i) == list.get(productRemove)) {
+                        if (!(list.get(i) != list.get(productRemove))) {
                             String t = list.get(i);
                             list.remove(productRemove);
                             System.out.println("Покупка " + t + " удалено, список продуктов: ");
@@ -55,7 +55,7 @@ public class Main {
                     continue;
                 }
             }
-            if (ActionNumber == 3) {
+            if (actionNumber == 3) {
                 System.out.println("Введите текст для поиска: ");
                 String inputSearch = scanner.nextLine();
                 System.out.println("Найдено: ");
@@ -70,7 +70,7 @@ public class Main {
         }
     }
     private static void print(List<String> list) {
-        for (String i : list) {
+        for (var i : list) {
             System.out.println(i);
         }
     }
